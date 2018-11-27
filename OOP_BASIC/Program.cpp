@@ -2,8 +2,8 @@
 //  Program.cpp
 //  OOP_BASIC
 //
-//  Created by Haichen Dong on 2018/11/23.
-//  Copyright © 2018 Haichen Dong. All rights reserved.
+//  Created by Haichen Dong on 5018/11/23.
+//  Copyright © 5018 Haichen Dong. All rights reserved.
 //
 
 #include "Program.h"
@@ -12,19 +12,18 @@ Vars Sentence::variable[2];
 std::string keyWords[] = {"REM", "LET", "PRINT", "INPUT", "END", "GOTO", "IF", "THEN", "RUN", "LIST", "CLEAR", "QUIT", "HELP"};
 
 int AssignmentStce::run(int directly) {
-    double tmp = 0.0;
+    int tmp = 0.0;
     try {
         tmp = exp.evaluate(&variable[directly]);
-    } catch (double) {
-        std::cout << "VARIABLE NOT DEFINED" << std::endl;
+    } catch (int) {
         return -1;
     }
     variable[directly].setVal(var, tmp);
     return 0;
 }
 void AssignmentStce::read() {
-    char buf[201];
-    std::cin.getline(buf, 200);
+    char buf[501];
+    std::cin.getline(buf, 500);
     str = "";
     int len = (int)strlen(buf), cur = 0;
     for (cur = 0; cur < len; cur++) {
@@ -53,19 +52,18 @@ void AssignmentStce::read() {
 
 
 int OutputStce::run(int directly) {
-    double tmp = 0.0;
+    int tmp = 0;
     try {
         tmp = exp.evaluate(&variable[directly]);
-    } catch (double) {
-        std::cout << "VARIABLE NOT DEFINED" << std::endl;
+    } catch (int) {
         return 1;
     }
     std::cout << tmp << std::endl;
     return 0;
 }
 void OutputStce::read() {
-    char buf[201];
-    std::cin.getline(buf, 200);
+    char buf[501];
+    std::cin.getline(buf, 500);
     str = "";
     int len = (int)strlen(buf), cur = 0;
     for (cur = 0; cur < len; cur++) {
@@ -79,11 +77,26 @@ void OutputStce::read() {
 
 
 int InputStce::run(int directly) {
-    std::cout << " ? ";
-    double tmp = 0.0;
-    if (!(std::cin >> tmp)) {
-        std::cout << "INVALID NUMBER" << std::endl;
-        return -1;
+    int tmp = 0;
+    std::cin.ignore(100,'\n');
+    while (1) {
+        std::cout << " ? ";
+        std::string tmpstr;
+        char buf[501];
+        std::cin.getline(buf, 500);
+        tmpstr = std::string(buf);
+        std::stringstream sin(tmpstr);
+//        std::cout << '\"' << tmpstr << '\"' << std::endl;
+        if (!(sin >> tmp)) {
+            std::cout << "INVALID NUMBER" << std::endl;
+        } else {
+            char chr;
+            if (sin >> chr) {
+                std::cout << "INVALID NUMBER" << std::endl;
+            } else {
+                break;
+            }
+        }
     }
     variable[directly].setVal(var, tmp);
     return 0;
@@ -98,8 +111,8 @@ int CommentsStce::run(int directly) {
     return 0;
 }
 void CommentsStce::read() {
-    char buf[201];
-    std::cin.getline(buf, 200);
+    char buf[501];
+    std::cin.getline(buf, 500);
     str = "REM" + std::string(buf);
 }
 
@@ -121,17 +134,15 @@ void GotoStce::read() {
 
 
 int ConditionStce::run(int directly) {
-    double tmp1 = 0, tmp2 = 0;
+    int tmp1 = 0, tmp2 = 0;
     try {
         tmp1 = exp1.evaluate(&variable[directly]);
-    } catch (double) {
-        std::cout << "VARIABLE NOT DEFINED" << std::endl;
+    } catch (int) {
         return -1;
     }
     try {
         tmp2 = exp2.evaluate(&variable[directly]);
-    } catch (double) {
-        std::cout << "VARIABLE NOT DEFINED" << std::endl;
+    } catch (int) {
         return -1;
     }
     // std::cout << tmp1 << " " << tmp2 << " " << opr << std::endl;
@@ -151,8 +162,8 @@ int ConditionStce::run(int directly) {
     return 0;
 }
 void ConditionStce::read() {
-    char buf[201];
-    std::cin.getline(buf, 200);
+    char buf[501];
+    std::cin.getline(buf, 500);
     str = "";
     int len = (int)strlen(buf), cur = 0;
     std::string str2 = "";

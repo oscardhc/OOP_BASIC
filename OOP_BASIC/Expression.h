@@ -18,7 +18,7 @@ class Exspression {
     
 public:
     void init(std::string str);
-    double evaluate(Vars *vars);
+    int evaluate(Vars *vars);
 };
 
 

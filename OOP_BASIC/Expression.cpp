@@ -11,10 +11,10 @@
 void Exspression::init(std::string str) {
     parser.buildTree(str);
 }
-double Exspression::evaluate(Vars *vars) {
+int Exspression::evaluate(Vars *vars) {
     try {
         return parser.parse(vars);
-    } catch (double) {
-        throw 0.0;
+    } catch (int) {
+        throw 0;
     }
 }

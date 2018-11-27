@@ -8,13 +8,13 @@
 
 #include "Parser.h"
 
-void Vars::setVal(std::string valName, double val) {
+void Vars::setVal(std::string valName, int val) {
     mp[valName] = val;
 }
-double Vars::getVal(std::string valName) {
+int Vars::getVal(std::string valName) {
     auto it = mp.find(valName);
     if (it == mp.end()) {
-        throw 0.0;
+        throw 0;
     } else {
         return it->second;
     }
@@ -43,10 +43,25 @@ PTree::~PTree() {
 }
 void PTree::build (Node* cur, std::string str){
 //    std::cout << "building   " << str << std::endl;
-    while (str[0] == '(' && str[str.length() - 1] == ')') {
-        str = str.substr(1, str.length() - 2);
-    }
     int bracketed = 0, maxpos = -1, maxval = -10000;
+    int flag = 1;
+    for (int i = 0, sz = (int)str.length(); i < sz - 1; i++) {
+        if (str[i] == '(') {
+            bracketed++;
+        } else if (str[i] == ')') {
+            bracketed--;
+        }
+        if (bracketed == 0) {
+            flag = 0;
+            break;
+        }
+    }
+    if (flag) {
+        while (str[0] == '(' && str[str.length() - 1] == ')') {
+            str = str.substr(1, str.length() - 2);
+        }
+    }
+    bracketed = 0;
     for (int i = 0, sz = (int)str.length(); i < sz; i++) {
         //            std::cout << i << "   " << str[i] << std::endl;
         if (str[i] == '(') {
@@ -77,23 +92,32 @@ void PTree::build (Node* cur, std::string str){
         build(cur->rhs, str.substr(maxpos + 1, str.length() - maxpos - 1));
     }
 }
-double PTree::cal(Node* cur, Vars *vars, std::vector<std::string> *undifined) {
+int PTree::cal(Node* cur, Vars *vars) {
     if (cur->leaf) {
         std::stringstream sin(cur->str);
-        double ret = 0;
+        int ret = 0;
         if (sin >> ret) {
             return ret;
         } else {
             try {
                 ret = vars->getVal(cur->str);
-            } catch (double) {
-                undifined->push_back(cur->str);
+            } catch (int) {
+                throw 1;
             }
             return ret;
         }
     }
-    double lval = cal(cur->lhs, vars, undifined);
-    double rval = cal(cur->rhs, vars, undifined);
+    int lval = 0, rval = 0;
+    try {
+        lval = cal(cur->lhs, vars);
+    } catch (int a) {
+        throw a;
+    }
+    try {
+        rval = cal(cur->rhs, vars);
+    } catch (int a) {
+        throw a;
+    }
     if (cur->str == "+") {
         return lval + rval;
     } else if (cur->str == "-") {
@@ -101,37 +125,42 @@ double PTree::cal(Node* cur, Vars *vars, std::vector<std::string> *undifined) {
     } else if (cur->str == "*") {
         return lval * rval;
     } else if (cur->str == "/") {
-        return lval / rval;
+        if (rval == 0) {
+            throw 2;
+        } else {
+            return lval / rval;
+        }
     } else {
         return 0;
     }
 }
 
-double PTree::calculate(Vars *vars){
+int PTree::calculate(Vars *vars){
     std::vector<std::string> undifined;
-    double ret = cal(root, vars, &undifined);
-    if (undifined.size() > 0) {
-        throw undifined;
-    } else {
-        return ret;
+    int ret = 0;
+    try {
+        ret = cal(root, vars);
+    } catch (int a) {
+        throw a;
     }
+    return ret;
 }
 
 void Parser::buildTree(std::string str){
     tree.build(tree.root, str);
 }
 
-double Parser::parse(Vars *vars){
-    double ret = 0;
+int Parser::parse(Vars *vars){
+    int ret = 0;
     try {
         ret = tree.calculate(vars);
-    } catch (std::vector<std::string> undifined) {
-//        std::cout << "Undefined variables: ";
-//        for (int i = 0, sz = (int)undifined.size(); i < sz; i++) {
-//            std::cout << undifined[i] << (i == sz - 1 ? "" : ", ");
-//        }
-        std::cout << std::endl;
-        throw 0.0;
+    } catch (int a) {
+        if (a == 1) {
+            std::cout << "VARIABLE NOT DEFINED" << std::endl;
+        } else {
+            std::cout << "DIVIDE BY ZERO" << std::endl;
+        }
+        throw 0;
     }
     return ret;
 }

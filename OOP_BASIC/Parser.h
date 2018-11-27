@@ -16,11 +16,11 @@
 #include <map>
 
 class Vars {
-    std::map<std::string, double> mp;
+    std::map<std::string, int> mp;
     
 public:
-    void setVal(std::string valName, double val);
-    double getVal(std::string valName);
+    void setVal(std::string valName, int val);
+    int getVal(std::string valName);
     void clear();
 };
 
@@ -48,10 +48,10 @@ public:
     PTree();
     ~PTree();
     void build (Node* cur, std::string str);
-    double cal(Node* cur, Vars *vars, std::vector<std::string> *undifined);
+    int cal(Node* cur, Vars *vars);
     
 public:
-    double calculate(Vars *vars);
+    int calculate(Vars *vars);
 };
 
 class Parser {
@@ -59,7 +59,7 @@ class Parser {
     
 public:
     void buildTree(std::string str);
-    double parse(Vars *vars);
+    int parse(Vars *vars);
 };
 
 
