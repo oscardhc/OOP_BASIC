@@ -6,23 +6,15 @@
 //  Copyright © 2018 Haichen Dong. All rights reserved.
 //
 
-#include <stdio.h>
-#include <string>
-#include "Parser.cpp"
+#include "Expression.h"
 
-class Exspression {
-    Parser parser;
-    
-public:
-    void init(std::string str) {
-        parser.buildTree(str);
+void Exspression::init(std::string str) {
+    parser.buildTree(str);
+}
+double Exspression::evaluate(Vars *vars) {
+    try {
+        return parser.parse(vars);
+    } catch (double) {
+        throw 0.0;
     }
-    double evaluate(Vars *vars) {
-        try {
-            return parser.parse(vars);
-        } catch (double) {
-            throw 0.0;
-        }
-    }
-};
-
+}

@@ -10,7 +10,6 @@
 		556140FD21A831C300C6417E /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FB21A831C300C6417E /* Parser.cpp */; };
 		556140FE21A831C300C6417E /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FC21A831C300C6417E /* Program.cpp */; };
 		5561410021A9001F00C6417E /* Expression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FF21A9001F00C6417E /* Expression.cpp */; };
-		557C253C21AD348C008BBE61 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 557C253B21AD348C008BBE61 /* Input.cpp */; };
 		5593500721A3E63E00723945 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5593500621A3E63E00723945 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -30,9 +29,11 @@
 		556140FB21A831C300C6417E /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
 		556140FC21A831C300C6417E /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
 		556140FF21A9001F00C6417E /* Expression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Expression.cpp; sourceTree = "<group>"; };
-		557C253B21AD348C008BBE61 /* Input.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		5593500321A3E63E00723945 /* OOP_BASIC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OOP_BASIC; sourceTree = BUILT_PRODUCTS_DIR; };
 		5593500621A3E63E00723945 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		55CCD1D921AD8E8600260703 /* Parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		55CCD1DA21AD912600260703 /* Expression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expression.h; sourceTree = "<group>"; };
+		55CCD1DB21AD916900260703 /* Program.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				5593500621A3E63E00723945 /* main.cpp */,
-				557C253B21AD348C008BBE61 /* Input.cpp */,
+				55CCD1D921AD8E8600260703 /* Parser.h */,
 				556140FB21A831C300C6417E /* Parser.cpp */,
+				55CCD1DA21AD912600260703 /* Expression.h */,
 				556140FF21A9001F00C6417E /* Expression.cpp */,
+				55CCD1DB21AD916900260703 /* Program.h */,
 				556140FC21A831C300C6417E /* Program.cpp */,
 			);
 			path = OOP_BASIC;
@@ -134,7 +137,6 @@
 				556140FD21A831C300C6417E /* Parser.cpp in Sources */,
 				5593500721A3E63E00723945 /* main.cpp in Sources */,
 				5561410021A9001F00C6417E /* Expression.cpp in Sources */,
-				557C253C21AD348C008BBE61 /* Input.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,8 +257,10 @@
 		5593500B21A3E63E00723945 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AEF5CS25ZL;
+				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -264,8 +268,10 @@
 		5593500C21A3E63E00723945 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AEF5CS25ZL;
+				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

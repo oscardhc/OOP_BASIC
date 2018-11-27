@@ -7,17 +7,19 @@
 //
 
 #include <iostream>
-#include "Program.cpp"
+#include "Program.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    Exspression ex;
-    ex.init("-(-1*a)*3+4");
-    Vars vs;
-    vs.setVal("a", 233);
-    std::cout << ex.evaluate(&vs) << std::endl;
+//    freopen("in.txt","r",stdin);
+//    std::cout << "HELLO WORLD" << std::endl;
+    CMD cmd;
+    while(1){
+        try {
+            cmd.work();
+        } catch(int) {
+            break;
+        }
+    }
     
-    Program a;
     return 0;
 }
