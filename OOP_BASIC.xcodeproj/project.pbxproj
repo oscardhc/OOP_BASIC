@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550963D521AE158F00C7F922 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 550963D421AE158F00C7F922 /* Makefile */; };
 		556140FD21A831C300C6417E /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FB21A831C300C6417E /* Parser.cpp */; };
 		556140FE21A831C300C6417E /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FC21A831C300C6417E /* Program.cpp */; };
 		5561410021A9001F00C6417E /* Expression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FF21A9001F00C6417E /* Expression.cpp */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		550963D421AE158F00C7F922 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		556140FB21A831C300C6417E /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
 		556140FC21A831C300C6417E /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
 		556140FF21A9001F00C6417E /* Expression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Expression.cpp; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				55CCD1D921AD8E8600260703 /* Parser.h */,
 				556140FB21A831C300C6417E /* Parser.cpp */,
 				55CCD1DA21AD912600260703 /* Expression.h */,
+				550963D421AE158F00C7F922 /* Makefile */,
 				556140FF21A9001F00C6417E /* Expression.cpp */,
 				55CCD1DB21AD916900260703 /* Program.h */,
 				556140FC21A831C300C6417E /* Program.cpp */,
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550963D521AE158F00C7F922 /* Makefile in Sources */,
 				556140FE21A831C300C6417E /* Program.cpp in Sources */,
 				556140FD21A831C300C6417E /* Parser.cpp in Sources */,
 				5593500721A3E63E00723945 /* main.cpp in Sources */,
