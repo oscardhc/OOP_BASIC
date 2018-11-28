@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:/Users/oscar/Documents/SJTU/freshman/&#x4e0a;&#x8bfe;/&#x7a0b;&#x5e8f;&#x8bbe;&#x8ba1;/OOP_BASIC/OOP_BASIC"
+      name = "OOP_BASIC">
+      <FileRef
+         location = "group:Program.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:Parser.h">
+      </FileRef>
+      <FileRef
+         location = "group:Expression.h">
+      </FileRef>
+      <FileRef
+         location = "group:Program.h">
+      </FileRef>
+      <FileRef
+         location = "group:Expression.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:Parser.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:main.cpp">
+      </FileRef>
+   </Group>
    <FileRef
-      location = "self:OOP_BASIC.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

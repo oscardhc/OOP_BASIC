@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		550963D721AE171F00C7F922 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 550963D621AE171F00C7F922 /* Makefile */; };
-		556140FD21A831C300C6417E /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FB21A831C300C6417E /* Parser.cpp */; };
-		556140FE21A831C300C6417E /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FC21A831C300C6417E /* Program.cpp */; };
-		5561410021A9001F00C6417E /* Expression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 556140FF21A9001F00C6417E /* Expression.cpp */; };
-		5593500721A3E63E00723945 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5593500621A3E63E00723945 /* main.cpp */; };
+		5509641D21AE1B3000C7F922 /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5509641621AE1B3000C7F922 /* Program.cpp */; };
+		5509641E21AE1B3000C7F922 /* Expression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5509641A21AE1B3000C7F922 /* Expression.cpp */; };
+		5509641F21AE1B3000C7F922 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5509641B21AE1B3000C7F922 /* Parser.cpp */; };
+		5509642021AE1B3000C7F922 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5509641C21AE1B3000C7F922 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,14 +28,14 @@
 
 /* Begin PBXFileReference section */
 		550963D621AE171F00C7F922 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		556140FB21A831C300C6417E /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
-		556140FC21A831C300C6417E /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
-		556140FF21A9001F00C6417E /* Expression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Expression.cpp; sourceTree = "<group>"; };
+		5509641621AE1B3000C7F922 /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
+		5509641721AE1B3000C7F922 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		5509641821AE1B3000C7F922 /* Expression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expression.h; sourceTree = "<group>"; };
+		5509641921AE1B3000C7F922 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		5509641A21AE1B3000C7F922 /* Expression.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Expression.cpp; sourceTree = "<group>"; };
+		5509641B21AE1B3000C7F922 /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
+		5509641C21AE1B3000C7F922 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5593500321A3E63E00723945 /* OOP_BASIC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OOP_BASIC; sourceTree = BUILT_PRODUCTS_DIR; };
-		5593500621A3E63E00723945 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		55CCD1D921AD8E8600260703 /* Parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
-		55CCD1DA21AD912600260703 /* Expression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expression.h; sourceTree = "<group>"; };
-		55CCD1DB21AD916900260703 /* Program.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,11 +49,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5509641521AE1B3000C7F922 /* OOP_BASIC */ = {
+			isa = PBXGroup;
+			children = (
+				5509641621AE1B3000C7F922 /* Program.cpp */,
+				5509641721AE1B3000C7F922 /* Parser.h */,
+				5509641821AE1B3000C7F922 /* Expression.h */,
+				5509641921AE1B3000C7F922 /* Program.h */,
+				5509641A21AE1B3000C7F922 /* Expression.cpp */,
+				5509641B21AE1B3000C7F922 /* Parser.cpp */,
+				5509641C21AE1B3000C7F922 /* main.cpp */,
+			);
+			path = OOP_BASIC;
+			sourceTree = "<group>";
+		};
 		55934FFA21A3E63E00723945 = {
 			isa = PBXGroup;
 			children = (
 				550963D621AE171F00C7F922 /* Makefile */,
-				5593500521A3E63E00723945 /* OOP_BASIC */,
+				5509641521AE1B3000C7F922 /* OOP_BASIC */,
 				5593500421A3E63E00723945 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,21 +80,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5593500521A3E63E00723945 /* OOP_BASIC */ = {
-			isa = PBXGroup;
-			children = (
-				5593500621A3E63E00723945 /* main.cpp */,
-				55CCD1D921AD8E8600260703 /* Parser.h */,
-				556140FB21A831C300C6417E /* Parser.cpp */,
-				55CCD1DA21AD912600260703 /* Expression.h */,
-				556140FF21A9001F00C6417E /* Expression.cpp */,
-				55CCD1DB21AD916900260703 /* Program.h */,
-				556140FC21A831C300C6417E /* Program.cpp */,
-			);
-			path = OOP_BASIC;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		550963D821AE185900C7F922 /* BASIC */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 550963D921AE185900C7F922 /* Build configuration list for PBXLegacyTarget "BASIC" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/oscar/Documents/SJTU/freshman/上课/程序设计/OOP_BASIC";
+			dependencies = (
+			);
+			name = BASIC;
+			passBuildSettingsInEnvironment = 1;
+			productName = BASIC;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		5593500221A3E63E00723945 /* OOP_BASIC */ = {
@@ -109,6 +126,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Haichen Dong";
 				TargetAttributes = {
+					550963D821AE185900C7F922 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					5593500221A3E63E00723945 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -127,6 +147,7 @@
 			projectRoot = "";
 			targets = (
 				5593500221A3E63E00723945 /* OOP_BASIC */,
+				550963D821AE185900C7F922 /* BASIC */,
 			);
 		};
 /* End PBXProject section */
@@ -136,17 +157,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5509641F21AE1B3000C7F922 /* Parser.cpp in Sources */,
+				5509641D21AE1B3000C7F922 /* Program.cpp in Sources */,
+				5509641E21AE1B3000C7F922 /* Expression.cpp in Sources */,
+				5509642021AE1B3000C7F922 /* main.cpp in Sources */,
 				550963D721AE171F00C7F922 /* Makefile in Sources */,
-				556140FE21A831C300C6417E /* Program.cpp in Sources */,
-				556140FD21A831C300C6417E /* Parser.cpp in Sources */,
-				5593500721A3E63E00723945 /* main.cpp in Sources */,
-				5561410021A9001F00C6417E /* Expression.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		550963DA21AE185900C7F922 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AEF5CS25ZL;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		550963DB21AE185900C7F922 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AEF5CS25ZL;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5593500821A3E63E00723945 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -283,6 +331,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		550963D921AE185900C7F922 /* Build configuration list for PBXLegacyTarget "BASIC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				550963DA21AE185900C7F922 /* Debug */,
+				550963DB21AE185900C7F922 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		55934FFE21A3E63E00723945 /* Build configuration list for PBXProject "OOP_BASIC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

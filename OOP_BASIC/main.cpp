@@ -11,7 +11,7 @@
 
 int main(int argc, const char * argv[]) {
 //    freopen("in.txt","r",stdin);
-//    std::cout << "HELLO WORLD" << std::endl;
+    std::cout << "HELLO WORLD" << std::endl;
     CMD cmd;
     while(1){
         try {
