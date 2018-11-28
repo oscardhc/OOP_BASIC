@@ -17,11 +17,11 @@
 
 class Sentence {
 public:
-    static Vars variable[2];
+    static Vars variable;
     std::string str;
     
 public:
-    virtual int run(int directly){
+    virtual int run(){
         return 0;
     }
     virtual void read(){
@@ -34,7 +34,7 @@ class AssignmentStce : public Sentence {
     Exspression exp;
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 
@@ -42,7 +42,7 @@ class OutputStce : public Sentence {
     Exspression exp;
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 
@@ -50,21 +50,21 @@ class InputStce : public Sentence {
     std::string var;
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 
 class CommentsStce : public Sentence {
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 
 class EndStce : public Sentence {
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 
@@ -72,7 +72,7 @@ class GotoStce : public Sentence {
     int num;
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 
@@ -82,7 +82,7 @@ class ConditionStce : public Sentence {
     std::string opr;
     
 public:
-    int run(int directly);
+    int run();
     void read();
 };
 

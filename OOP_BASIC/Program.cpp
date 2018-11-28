@@ -8,17 +8,17 @@
 
 #include "Program.h"
 
-Vars Sentence::variable[2];
+Vars Sentence::variable;
 std::string keyWords[] = {"REM", "LET", "PRINT", "INPUT", "END", "GOTO", "IF", "THEN", "RUN", "LIST", "CLEAR", "QUIT", "HELP"};
 
-int AssignmentStce::run(int directly) {
+int AssignmentStce::run() {
     int tmp = 0.0;
     try {
-        tmp = exp.evaluate(&variable[directly]);
+        tmp = exp.evaluate(&variable);
     } catch (int) {
         return -1;
     }
-    variable[directly].setVal(var, tmp);
+    variable.setVal(var, tmp);
     return 0;
 }
 void AssignmentStce::read() {
@@ -51,10 +51,10 @@ void AssignmentStce::read() {
 }
 
 
-int OutputStce::run(int directly) {
+int OutputStce::run() {
     int tmp = 0;
     try {
-        tmp = exp.evaluate(&variable[directly]);
+        tmp = exp.evaluate(&variable);
     } catch (int) {
         return 1;
     }
@@ -76,15 +76,17 @@ void OutputStce::read() {
 }
 
 
-int InputStce::run(int directly) {
+int InputStce::run() {
     int tmp = 0;
-    std::cin.ignore(100,'\n');
+//    std::cin.ignore(100,'\n');
     while (1) {
         std::cout << " ? ";
         std::string tmpstr;
         char buf[501];
-        std::cin.getline(buf, 500);
-        tmpstr = std::string(buf);
+        do {
+            std::cin.getline(buf, 500);
+            tmpstr = std::string(buf);
+        } while (strlen(buf) == 0) ;
         std::stringstream sin(tmpstr);
 //        std::cout << '\"' << tmpstr << '\"' << std::endl;
         if (!(sin >> tmp)) {
@@ -98,16 +100,20 @@ int InputStce::run(int directly) {
             }
         }
     }
-    variable[directly].setVal(var, tmp);
+    variable.setVal(var, tmp);
     return 0;
 }
 void InputStce::read() {
-    std::cin >> var;
+    char buf[501];
+    std::cin.getline(buf, 500);
+    std::string tmpstr = std::string(buf);
+    std::stringstream sin(tmpstr);
+    sin >> var;
     str = "INPUT" + var;
 }
 
 
-int CommentsStce::run(int directly) {
+int CommentsStce::run() {
     return 0;
 }
 void CommentsStce::read() {
@@ -117,31 +123,35 @@ void CommentsStce::read() {
 }
 
 
-int EndStce::run(int directly) {
+int EndStce::run() {
     return 1;
 }
 void EndStce::read() {
 }
 
-int GotoStce::run(int directly) {
+int GotoStce::run() {
     throw num;
     return 0;
 }
 void GotoStce::read() {
-    std::cin >> num;
+    char buf[501];
+    std::cin.getline(buf, 500);
+    std::string tmpstr = std::string(buf);
+    std::stringstream sin(tmpstr);
+    sin >> num;
     // str = "GOTO" + std::string(num2str(num));
 }
 
 
-int ConditionStce::run(int directly) {
+int ConditionStce::run() {
     int tmp1 = 0, tmp2 = 0;
     try {
-        tmp1 = exp1.evaluate(&variable[directly]);
+        tmp1 = exp1.evaluate(&variable);
     } catch (int) {
         return -1;
     }
     try {
-        tmp2 = exp2.evaluate(&variable[directly]);
+        tmp2 = exp2.evaluate(&variable);
     } catch (int) {
         return -1;
     }
@@ -217,14 +227,16 @@ void Program::delStce(int lineNum) {
     auto it = stce.find(lineNum);
     if (it != stce.end()) {
         stce.erase(it);
+    } else {
+//        std::cout << "LINE NUMBER ERROR" << std::endl;
     }
 }
 void Program::execute() {
     for (auto i = stce.begin(); i != stce.end(); ) {
-        // std::cout << "RUNNING LINE " << i->first << std::endl;
+//         std::cout << "RUNNING LINE " << i->first << std::endl;
         int re = 0;
         try {
-            re = i->second->run(0);
+            re = i->second->run();
             if (re) {
                 break;
             }
@@ -244,8 +256,7 @@ void Program::execute() {
 }
 void Program::clear() {
     stce.clear();
-    Sentence::variable[0].clear();
-    Sentence::variable[1].clear();
+    Sentence::variable.clear();
 }
 void Program::list() {
     for (auto i = stce.begin(); i != stce.end(); i++) {
@@ -314,7 +325,7 @@ void CMD::work() {
         stce->read();
         int ret = 0;
         try {
-            ret = stce->run(1);
+            ret = stce->run();
         } catch (int) {
             
         }
